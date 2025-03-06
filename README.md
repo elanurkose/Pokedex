@@ -37,7 +37,7 @@ Bu proje, **Angular 19.1 standalone mimarisi** ve **Angular Material** kullanıl
 
 ```bash
 # Proje dizinine gidin
-cd angular-pokedex
+cd pokemon-app
 
 # Bağımlılıkları yükleyin
 npm install
