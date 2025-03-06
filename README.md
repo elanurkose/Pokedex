@@ -131,7 +131,7 @@ Pokemon ekleme ve düzenleme işlemlerinde **Reactive Forms** kullanılmıştır
 - HTTP istekleri için optimizasyon ve **Caching**
 - Özel Pokemon'lar için **LocalStorage** entegrasyonu
 
-## Özel Eklenen Pokemonlar ve API Entegrasyonu
+### Özel Eklenen Pokemonlar ve API Entegrasyonu
 
 Bu uygulama, **PokeAPI** üzerinden gerçek Pokémon verilerini çeker ve kullanıcı tarafından özel olarak eklenen Pokémonları **local storage** üzerinde saklar.
 
