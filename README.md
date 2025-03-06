@@ -1,59 +1,145 @@
-# PokemonApp
+# 🌟 Angular Pokedex Uygulaması 🌟
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## 📖 Proje Hakkında
 
-## Development server
+Bu proje, **Angular 19.1 standalone mimarisi** ve **Angular Material** kullanılarak geliştirilmiş modern bir **Pokedex uygulamasıdır**. PokeAPI ile entegre çalışan uygulama, hybrid mimari yaklaşımı ile geliştirilmiştir. Kullanıcılar **Pokemon'ları listeleyebilir, arayabilir, detaylarını görüntüleyebilir** ve **kendi özel Pokemon'larını oluşturabilir**.
 
-To start a local development server, run:
+---
+
+## 🚀 Özellikler
+
+-  **Pokemon Listeleme**: Sayfalandırma ile Pokemon'ları görüntüleme
+-  **Pokemon Detayları**: Her Pokemon'un detaylı bilgilerini görüntüleme
+-  **Arama Fonksiyonu**: İsme göre Pokemon arama
+-  **Caching (Önbellekleme)**: Performans optimizasyonu için API yanıtlarını cachingleme
+- ️ **Özel Pokemon Yönetimi**:
+  - Yeni Pokemon oluşturma
+  - Mevcut özel Pokemon'ları düzenleme
+  - Özel Pokemon'ları silme
+-  **Yerel Depolama**: Özel Pokemon'lar için local storage kullanımı
+-  **Reaktif UI**: RxJS ile reaktif kullanıcı arayüzü
+
+---
+
+## 🛠️ Kullanılan Teknolojiler
+
+- **Angular 19.1** (Hybrid)
+- **Angular Material**
+- **RxJS**
+- **TypeScript**
+- **CSS**
+- **PokeAPI**
+- **Local Storage API**
+
+---
+
+## 📝 Kurulum
 
 ```bash
+# Proje dizinine gidin
+cd angular-pokedex
+
+# Bağımlılıkları yükleyin
+npm install
+
+# Geliştirme sunucusunu başlatın
 ng serve
+
+# Tarayıcınızda http://localhost:4200 adresine gidin
+
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📁 Proje Yapısı
 
 ```bash
-ng generate component component-name
+src/
+  ├── app/
+  │   ├── core/
+  │   │   ├── services/
+  │   │   │   └── pokemon.service.ts
+  │   ├── shared/
+  │   │   ├── directives/
+  │   │   │   └── color-type.directive.ts
+  │   │   ├── pipes/
+  │   │   │   └── stat-name.pipe.ts
+  │   ├── features/pokemon
+  │   │   ├── add-pokemon/
+  │   │   │   ├── add-pokemon.component.css
+  │   │   │   ├── add-pokemon.component.html
+  │   │   │   └── add-pokemon.component.ts
+  │   │   ├── edit-pokemon/
+  │   │   │   ├── edit-pokemon.component.css
+  │   │   │   ├── edit-pokemon.component.html
+  │   │   │   └── edit-pokemon.component.ts
+  │   │   ├── header/
+  │   │   │   ├── header.component.css
+  │   │   │   ├── header.component.html
+  │   │   │   └── header.component.ts
+  │   │   ├── pokemon-list/
+  │   │   │   ├── pokemon-list.component.css
+  │   │   │   ├── pokemon-list.component.html
+  │   │   │   └── pokemon-list.component.ts
+  │   │   ├── pokemon-detail/
+  │   │   │   ├── pokemon-detail.component.css
+  │   │   │   ├── pokemon-detail.component.html
+  │   │   │   └── pokemon-detail.component.ts
+  │   │   ├── pokemon-search/
+  │   │   │   ├── pokemon-search.component.css
+  │   │   │   ├── pokemon-search.component.html
+  │   │   │   └── pokemon-search.component.ts
+  │   │   └── pokemon.routes.ts
+  │   ├── models/
+  │   │   ├── pokemon.detail.ts
+  │   │   └── pokemon.list.ts
+  │   ├── app.routes.ts
+  │   ├── app.component.ts
+  │   ├── app.component.css
+  │   ├── app.component.html
+  │   └── app.config.ts
+  ├── index.html
+  ├── main.ts
+  └── styles.css
 ```
+## ⚙️ Kullanım
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Hybrid Mimari Yaklaşımı
 
-```bash
-ng generate --help
-```
+Uygulama, Angular 19.1'in standalone bileşen API'sini kullanırken klasik klasör yapısını da koruyan hybrid bir yaklaşım benimser:
 
-## Building
+- **Core**: Singleton servisler
+- **Shared**: Birden fazla bileşen tarafından paylaşılan direktifler, pipelar
+- **Features**: Ana uygulama özellikleri için bileşenler
 
-To build the project run:
+### Özel Direktif ve Pipelar
 
-```bash
-ng build
-```
+- **ColorTypeDirective**: Pokemon tipine göre arka plan rengini değiştirir
+- **StatNamePipe**: Her kelimeyi formatlayarak görüntüler
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Reactive Forms
 
-## Running unit tests
+Pokemon ekleme ve düzenleme işlemlerinde **Reactive Forms** kullanılmıştır:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Form doğrulamaları (required, minLength, pattern)
+- Dinamik form kontrolleri
+- Form durumunu izleme ve hata mesajları gösterme
 
-```bash
-ng test
-```
+### API ve State Yönetimi
 
-## Running end-to-end tests
+- **RxJS Observables** ile reaktif veri akışı
+- **BehaviorSubject** ile yerel durum yönetimi
+- HTTP istekleri için optimizasyon ve **Caching**
+- Özel Pokemon'lar için **LocalStorage** entegrasyonu
 
-For end-to-end (e2e) testing, run:
+### Performans Optimizasyonları
 
-```bash
-ng e2e
-```
+- **Caching**: API'den alınan Pokemon bilgileri, tekrar kullanım için önbelleklenir
+- **Lazy Loading**: Yalnızca görüntülenen Pokemon'lar için detaylı bilgi yüklenir
+- **Local Storage**: Özel Pokemon'lar, sayfa yenilemelerinde kaybolmaması için yerel depolamada saklanır
+- **Standalone Bileşenler**: Daha küçük paket boyutu ve daha hızlı yükleme süreleri
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 🎨 UI/UX Özellikleri
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Angular Material**: UI bileşenlerinde **Angular Material** kullanılarak modern ve uyumlu bir tasarım oluşturulmuştur.

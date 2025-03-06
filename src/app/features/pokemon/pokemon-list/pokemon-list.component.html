@@ -1,0 +1,47 @@
+<app-pokemon-search (search)="onSearch($event)"></app-pokemon-search>
+
+<div *ngIf="loading && pokemons.length === 0" class="loading-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="error" class="error-container">
+  <p>{{ error }}</p>
+</div>
+
+<div *ngIf="!loading && filteredPokemons.length === 0" class="no-results">
+  <p>No Pokémon found.</p>
+</div>
+
+<div *ngIf="filteredPokemons.length > 0" class="pokemon-grid">
+  <mat-card *ngFor="let pokemon of filteredPokemons" class="pokemon-card" (click)="showDetails(pokemon)">
+    <img
+      mat-card-image
+      [src]="pokemon.sprites.front_default"
+      [alt]="pokemon.name || 'Unknown Pokemon'"
+    >
+    <mat-card-content>
+      <h2>{{ pokemon.name | titlecase }}</h2>
+      <div class="type-container">
+        <span *ngFor="let type of pokemon.types || []"
+              class="type-badge"
+              [appColorType]="type.type.name">
+          {{ type.type.name }}
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="load-more">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="loadMore()"
+    [disabled]="loading">
+    Load More
+  </button>
+</div>
+
+<div *ngIf="loading && pokemons.length > 0" class="loading-container">
+  <mat-spinner></mat-spinner>
+</div>

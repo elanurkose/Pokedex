@@ -1,0 +1,47 @@
+.custom-toolbar {
+  background: #ffd9e1;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  box-shadow: none;
+}
+
+.logo-container img {
+  height: 60px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+button {
+  color: #ba005c;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  text-transform: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+button mat-icon {
+  font-size: 19px;
+  color: #ba005c;
+}
+
+.button-text {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ba005c;
+}
+
+body {
+  margin: 0;
+  padding-top: 80px;
+}

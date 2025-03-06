@@ -1,0 +1,18 @@
+<mat-toolbar class="custom-toolbar">
+  <a href="" class="logo-container">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"
+      height="60"
+      alt="Pokémon Logo"
+    />
+  </a>
+  <span class="spacer"></span>
+  <button mat-button (click)="navigateToHome()" aria-label="Home">
+    <mat-icon>home</mat-icon>
+    <span class="button-text">Home</span>
+  </button>
+  <button mat-button (click)="navigateToAddPokemon()" aria-label="Add Pokémon">
+    <mat-icon>add_circle</mat-icon>
+    <span class="button-text">Add Pokémon</span>
+  </button>
+</mat-toolbar>

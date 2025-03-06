@@ -1,0 +1,227 @@
+<div class="add-pokemon-container">
+  <h1>Add Custom Pokemon</h1>
+
+  <div class="content-container">
+    <form [formGroup]="pokemonForm" (ngSubmit)="onSubmit()" class="pokemon-form">
+      <mat-card>
+        <mat-card-content>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Pokemon Name</mat-label>
+              <input matInput formControlName="name" placeholder="Enter Pokemon name">
+              <mat-error *ngIf="pokemonForm.get('name')?.hasError('required')">Name is required</mat-error>
+              <mat-error *ngIf="pokemonForm.get('name')?.hasError('minlength')">The name must be at least 3 characters long</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row form-row-half">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Height</mat-label>
+              <input matInput type="number" formControlName="height" placeholder="Enter height">
+              <mat-error *ngIf="pokemonForm.get('height')?.hasError('required')">Height is required</mat-error>
+              <mat-error *ngIf="pokemonForm.get('height')?.hasError('min')">Height must be greater than 0</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Weight</mat-label>
+              <input matInput type="number" formControlName="weight" placeholder="Enter weight">
+              <mat-error *ngIf="pokemonForm.get('weight')?.hasError('required')">Weight is required</mat-error>
+              <mat-error *ngIf="pokemonForm.get('weight')?.hasError('min')">Weight must be greater than 0</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Image URL</mat-label>
+              <input matInput formControlName="imageUrl" placeholder="Enter image URL">
+              <mat-error *ngIf="pokemonForm.get('imageUrl')?.hasError('pattern')">Please enter a valid URL</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Type</mat-label>
+              <mat-select formControlName="type">
+                <mat-option value="normal">Normal</mat-option>
+                <mat-option value="fire">Fire</mat-option>
+                <mat-option value="water">Water</mat-option>
+                <mat-option value="grass">Grass</mat-option>
+                <mat-option value="electric">Electric</mat-option>
+                <mat-option value="ice">Ice</mat-option>
+                <mat-option value="fighting">Fighting</mat-option>
+                <mat-option value="poison">Poison</mat-option>
+                <mat-option value="ground">Ground</mat-option>
+                <mat-option value="flying">Flying</mat-option>
+                <mat-option value="psychic">Psychic</mat-option>
+                <mat-option value="bug">Bug</mat-option>
+                <mat-option value="rock">Rock</mat-option>
+                <mat-option value="ghost">Ghost</mat-option>
+                <mat-option value="dark">Dark</mat-option>
+                <mat-option value="dragon">Dragon</mat-option>
+                <mat-option value="steel">Steel</mat-option>
+                <mat-option value="fairy">Fairy</mat-option>
+              </mat-select>
+              <mat-error *ngIf="pokemonForm.get('type')?.hasError('required')">Type is required</mat-error>
+            </mat-form-field>
+          </div>
+
+          <h3>Base Stats</h3>
+          <div formGroupName="stats" class="stats-grid">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>HP</mat-label>
+              <input matInput type="number" formControlName="hp" min="1" max="255">
+              <mat-error *ngIf="pokemonForm.get('stats.hp')?.hasError('required') || pokemonForm.get('stats.hp')?.hasError('min')">
+                Value must be 1-255
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Attack</mat-label>
+              <input matInput type="number" formControlName="attack" min="1" max="255">
+              <mat-error *ngIf="pokemonForm.get('stats.attack')?.hasError('required') || pokemonForm.get('stats.attack')?.hasError('min')">
+                Value must be 1-255
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Defense</mat-label>
+              <input matInput type="number" formControlName="defense" min="1" max="255">
+              <mat-error *ngIf="pokemonForm.get('stats.defense')?.hasError('required') || pokemonForm.get('stats.defense')?.hasError('min')">
+                Value must be 1-255
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Special Attack</mat-label>
+              <input matInput type="number" formControlName="specialAttack" min="1" max="255">
+              <mat-error *ngIf="pokemonForm.get('stats.specialAttack')?.hasError('required') || pokemonForm.get('stats.specialAttack')?.hasError('min')">
+                Value must be 1-255
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Special Defense</mat-label>
+              <input matInput type="number" formControlName="specialDefense" min="1" max="255">
+              <mat-error *ngIf="pokemonForm.get('stats.specialDefense')?.hasError('required') || pokemonForm.get('stats.specialDefense')?.hasError('min')">
+                Value must be 1-255
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Speed</mat-label>
+              <input matInput type="number" formControlName="speed" min="1" max="255">
+              <mat-error *ngIf="pokemonForm.get('stats.speed')?.hasError('required') || pokemonForm.get('stats.speed')?.hasError('min')">
+                Value must be 1-255
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <h3>Abilities</h3>
+          <div formArrayName="abilities" class="abilities-container">
+            <div *ngFor="let ability of abilities.controls; let i = index" [formGroupName]="i" class="ability-row">
+              <mat-form-field appearance="outline" class="ability-name">
+                <mat-label>Ability Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter ability name">
+                <mat-error *ngIf="ability.get('name')?.hasError('required')">Ability name is required</mat-error>
+                <mat-error *ngIf="ability.get('name')?.hasError('minlength')">Must be at least 2 characters</mat-error>
+              </mat-form-field>
+
+              <div class="ability-hidden">
+                <mat-checkbox formControlName="isHidden">Hidden Ability</mat-checkbox>
+              </div>
+
+              <button
+                type="button"
+                mat-icon-button
+                color="warn"
+                (click)="removeAbility(i)"
+                [disabled]="abilities.length <= 1"
+                class="remove-ability">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+
+            <button
+              type="button"
+              mat-stroked-button
+              color="primary"
+              (click)="addAbility()"
+              [disabled]="abilities.length >= 4"
+              class="add-ability-btn">
+              <mat-icon>add</mat-icon> Add Ability
+            </button>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="description" placeholder="Enter description" rows="4"></textarea>
+              <mat-error *ngIf="pokemonForm.get('description')?.hasError('maxlength')">Description must not exceed 500 characters</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit" [disabled]="pokemonForm.invalid || isSubmitting">
+            <mat-icon>add_circle</mat-icon> Add Pokemon
+          </button>
+          <button mat-button type="button" (click)="resetForm()">
+            <mat-icon>refresh</mat-icon> Reset
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+
+    <div class="preview-container" *ngIf="previewPokemon">
+      <h2>Preview</h2>
+      <mat-card class="preview-card">
+        <mat-card-header>
+          <mat-card-title>{{ previewPokemon.name | titlecase }}</mat-card-title>
+          <mat-card-subtitle *ngIf="previewPokemon.types && previewPokemon.types.length">
+            <span class="type-badge" [appColorType]="previewPokemon.types[0].type.name">
+              {{ previewPokemon.types[0].type.name | titlecase }}
+            </span>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <div class="preview-image">
+          <img [src]="previewPokemon.sprites.front_default " [alt]="previewPokemon.name">
+        </div>
+
+        <mat-card-content *ngIf="previewPokemon">
+          <div class="preview-details">
+            <div class="detail">
+              <strong>Height:</strong>
+              <span>{{ previewPokemon.height / 10 }} m</span>
+            </div>
+            <div class="detail">
+              <strong>Weight:</strong>
+              <span>{{ previewPokemon.weight / 10 }} kg</span>
+            </div>
+
+            <div class="stats-preview" *ngIf="previewPokemon.stats && previewPokemon.stats.length">
+              <h4>Base Stats</h4>
+              <div class="stat-item" *ngFor="let stat of previewPokemon.stats">
+                <span class="stat-name">{{ stat.stat.name | titlecase }}</span>
+                <div class="stat-bar-container">
+                  <div class="stat-bar" [style.width.%]="stat.base_stat * 100 / 255"></div>
+                </div>
+                <span class="stat-value">{{ stat.base_stat }}</span>
+              </div>
+            </div>
+
+            <div class="abilities-preview" *ngIf="previewPokemon.abilities && previewPokemon.abilities.length">
+              <h4>Abilities</h4>
+              <div>
+                <span *ngFor="let ability of previewPokemon.abilities" class="ability-item">
+                  {{ ability.ability.name | titlecase }}
+                  <span *ngIf="ability.is_hidden" class="hidden-ability">(Hidden)</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

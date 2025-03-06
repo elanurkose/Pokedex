@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-form">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search Pokemon</mat-label>
+    <input matInput formControlName="search" placeholder="Enter Pokemon name">
+    <mat-error *ngIf="searchForm.get('search')?.hasError('required')">
+      Please enter a Pokemon name
+    </mat-error>
+    <mat-error *ngIf="searchForm.get('search')?.hasError('minlength')">
+      Pokemon name must be at least 2 characters
+    </mat-error>
+  </mat-form-field>
+</form>

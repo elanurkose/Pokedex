@@ -1,0 +1,121 @@
+.pokemon-detail {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-card {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.pokemon-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pokemon-header h1 {
+  margin-bottom: 10px;
+}
+
+.type-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.type-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.pokemon-image {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pokemon-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.stats-container, .abilities-container {
+  margin-top: 20px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stat-name {
+  width: 120px;
+  font-weight: 500;
+}
+
+.stat-bar-container {
+  flex: 1;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.stat-bar {
+  height: 100%;
+  background-color: #78c850;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 12px;
+  min-width: 30px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.custom-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.physical-container {
+  margin: 20px 0;
+}
+
+.physical-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.physical-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 100px;
+}
+
+.stat-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.2em;
+}

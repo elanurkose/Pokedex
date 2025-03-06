@@ -1,0 +1,295 @@
+.add-pokemon-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #ba005c;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+h3 {
+  color: #ba005c;
+  margin: 25px 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom: 1px solid #ba005c;
+  padding-bottom: 8px;
+}
+
+h4 {
+  color: #ba005c;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.pokemon-form {
+  width: 100%;
+}
+
+.form-row {
+  margin-bottom: 15px;
+}
+
+.form-row-half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.abilities-container {
+  margin: 15px 0 25px 0;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.ability-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.ability-name {
+  flex: 1;
+  margin-right: 15px;
+}
+
+.ability-hidden {
+  width: 120px;
+  margin: 0 5px;
+}
+
+.remove-ability {
+  margin-left: 5px;
+}
+
+.add-ability-btn {
+  margin-top: 5px;
+  display: block;
+  width: 100%;
+}
+
+mat-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.preview-container {
+  padding: 10px;
+}
+
+h2 {
+  color: #ba005c;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.preview-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(186, 0, 92, 0.1) !important;
+}
+
+.preview-image {
+  display: flex;
+  justify-content: center;
+  background-color: #fdf1f2;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.preview-image:hover {
+  background-color: #fbe4e8;
+}
+
+.preview-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.preview-image:hover img {
+  transform: scale(1.05);
+}
+
+.type-badge {
+  display: inline-block;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-details {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #fff8f8;
+  border-radius: 8px;
+}
+
+.detail {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-preview {
+  margin-top: 15px;
+  border-top: 1px solid #f1c0d4;
+  padding-top: 10px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stat-name {
+  width: 120px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.stat-bar-container {
+  flex: 1;
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ba005c, #e05c96);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.stat-value {
+  width: 40px;
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ba005c;
+}
+
+.abilities-preview {
+  margin-top: 15px;
+  border-top: 1px solid #f1c0d4;
+  padding-top: 10px;
+}
+
+.ability-item {
+  background-color: #fbe4e8;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.hidden-ability {
+  color: #ba005c;
+  font-style: italic;
+  margin-left: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ba005c;
+}
+
+mat-card-header {
+  padding: 16px;
+}
+
+mat-card-subtitle {
+  margin-top: 8px;
+}
+
+mat-form-field.ng-invalid.ng-touched .mat-form-field-outline {
+  color: #f44336;
+}
+
+.ability-row {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button[type="submit"] {
+  background-color: #e57399;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover:not([disabled]) {
+  background-color: #f06292;
+}
+
+.add-ability-btn {
+  color: #ba005c;
+  border-color: #e57399;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #e57399 !important;
+}
+

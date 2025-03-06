@@ -1,0 +1,66 @@
+<div *ngIf="loading" class="loading-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="pokemon && !loading" class="pokemon-detail">
+  <button mat-button (click)="goBack()">
+    ← Back to List
+  </button>
+
+  <mat-card class="detail-card">
+    <div class="pokemon-header">
+      <h1>{{ pokemon.name | titlecase }} #{{ pokemon.id }}</h1>
+      <div class="type-container">
+        <span *ngFor="let type of pokemon.types"
+              class="type-badge"
+              [appColorType]="type.type.name">
+          {{ type.type.name }}
+        </span>
+      </div>
+
+      <div class="custom-actions" *ngIf="isCustomPokemon">
+        <button mat-raised-button color="primary" (click)="editPokemon()">Edit</button>
+        <button mat-raised-button color="warn" (click)="deletePokemon()">Delete</button>
+      </div>
+    </div>
+
+    <div class="pokemon-image">
+      <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+      <img *ngIf="pokemon.sprites.back_default" [src]="pokemon.sprites.back_default" [alt]="pokemon.name">
+    </div>
+
+    <div class="physical-container">
+      <h2>Physical Characteristics</h2>
+      <div class="physical-stats">
+        <div class="physical-stat">
+          <span class="stat-label">Height:</span>
+          <span class="stat-value">{{ pokemon.height / 10 }} m</span>
+        </div>
+        <div class="physical-stat">
+          <span class="stat-label">Weight:</span>
+          <span class="stat-value">{{ pokemon.weight / 10 }} kg</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-container">
+      <h2>Base Stats</h2>
+      <div *ngFor="let stat of pokemon.stats" class="stat-row">
+        <span class="stat-name">{{ stat.stat.name | statName }}:</span>
+        <div class="stat-bar-container">
+          <div class="stat-bar" [style.width.%]="(stat.base_stat / 255) * 100">
+            {{ stat.base_stat }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="abilities-container">
+      <h2>Abilities</h2>
+      <p *ngFor="let ability of pokemon.abilities">
+        {{ ability.ability.name | titlecase }}
+        <span *ngIf="ability.is_hidden">(Hidden)</span>
+      </p>
+    </div>
+  </mat-card>
+</div>
