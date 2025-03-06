@@ -8,16 +8,16 @@ Bu proje, **Angular 19.1 standalone mimarisi** ve **Angular Material** kullanıl
 
 ## 🚀 Özellikler
 
--  **Pokemon Listeleme**: Sayfalandırma ile Pokemon'ları görüntüleme
--  **Pokemon Detayları**: Her Pokemon'un detaylı bilgilerini görüntüleme
--  **Arama Fonksiyonu**: İsme göre Pokemon arama
--  **Caching (Önbellekleme)**: Performans optimizasyonu için API yanıtlarını cachingleme
-- ️ **Özel Pokemon Yönetimi**:
+- **Pokemon Listeleme**: Sayfalandırma ile Pokemon'ları görüntüleme
+- **Pokemon Detayları**: Her Pokemon'un detaylı bilgilerini görüntüleme
+- **Arama Fonksiyonu**: İsme göre Pokemon arama
+- **Caching (Önbellekleme)**: Performans optimizasyonu için API yanıtlarını cachingleme
+- **Özel Pokemon Yönetimi**:
   - Yeni Pokemon oluşturma
   - Mevcut özel Pokemon'ları düzenleme
   - Özel Pokemon'ları silme
--  **Yerel Depolama**: Özel Pokemon'lar için local storage kullanımı
--  **Reaktif UI**: RxJS ile reaktif kullanıcı arayüzü
+- **Yerel Depolama**: Özel Pokemon'lar için local storage kullanımı
+- **Reaktif UI**: RxJS ile reaktif kullanıcı arayüzü
 
 ---
 
@@ -48,7 +48,6 @@ ng serve
 # Tarayıcınızda http://localhost:4200 adresine gidin
 
 ```
-
 
 ## 📁 Proje Yapısı
 
@@ -101,6 +100,7 @@ src/
   ├── main.ts
   └── styles.css
 ```
+
 ## ⚙️ Kullanım
 
 ### Hybrid Mimari Yaklaşımı
